@@ -14,7 +14,7 @@ pipeline {
               '''
             }
         }
-         stage("Git Code Check - Truffle"){
+         stage("Owasp Dependancy Check"){
             steps{
               sh '''
               rm -r owasp* || true
