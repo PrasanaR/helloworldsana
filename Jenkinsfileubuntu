@@ -18,6 +18,7 @@ pipeline {
             steps{
               sh '''
               rm -r owasp* || true
+              docker pull owasp/dependency-check
               wget 'https://raw.githubusercontent.com/PrasanaR/helloworldsana/main/owasp-dependancy-check.sh'
               chmod +x owasp*
               
