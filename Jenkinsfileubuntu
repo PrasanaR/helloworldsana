@@ -18,7 +18,7 @@ pipeline {
             steps{
               sh '''
               rm -r owasp* || true
-              wget  'https://github.com/PrasanaR/helloworldsana/owasp-dependancy-check.sh'
+              wget  'https://github.com/PrasanaR/helloworldsana/blob/main/owasp-dependancy-check.sh'
               chmod +x owasp-dependancy-check.sh
               bash owasp-dependancy-check.sh
               '''
