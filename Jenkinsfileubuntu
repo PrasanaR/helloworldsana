@@ -14,23 +14,23 @@ pipeline {
               '''
             }
         }
-         /*stage("Owasp Dependancy Check"){
+         stage("Owasp Dependancy Check"){
             steps{
               sh '''
               rm -r owasp* || true
-              wget https://github.com/PrasanaR/helloworldsana/blob/main/owasp-dependancy-check.sh
+              wget https://raw.githubusercontent.com/PrasanaR/helloworldsana/main/owasp-dependancy-check.sh
               chmod +x owasp*
               bash owasp*
               '''
             }
-        }*/
+        }
         
-        stage("owasp"){
+       /* stage("owasp"){
             
             steps{
                 dependencyCheck additionalArguments: '', odcInstallation: 'owasp'
             }
-        }
+        }*/
         
        
         
