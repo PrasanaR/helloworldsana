@@ -14,11 +14,6 @@ pipeline {
               '''
             }
         }
-        
-        stage("clone code"){
-            steps{
-              git branch: 'main', url: 'https://github.com/PrasanaR/helloworldsana.git'
-            }
         }
         stage("build code"){
             steps{
