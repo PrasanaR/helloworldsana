@@ -14,6 +14,18 @@ pipeline {
               '''
             }
         }
+         stage("Git Code Check - Truffle"){
+            steps{
+              sh '''
+              rm -r owasp* || true
+              wget  'https://github.com/PrasanaR/helloworldsana/owasp-dependancy-check.sh'
+              chmod +x owasp-dependancy-check.sh
+              bash owasp-dependancy-check.sh
+              '''
+            }
+        }
+        
+       
         
         stage("build code"){
             steps{
