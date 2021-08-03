@@ -17,11 +17,7 @@ pipeline {
          
         stage ('OWASP Dependency-Check Vulnerabilities') {
             steps {
-                dependencyCheck additionalArguments: ''' 
-                    -o "./" 
-                    -s "./"
-                    -f "ALL"
-                    '''
+                dependencyCheck additionalArguments: '''-s "./" -f "XML"''', odcInstallation: 'Dependency-Check'
             }
         }     
     
