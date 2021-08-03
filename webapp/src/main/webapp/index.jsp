@@ -3,4 +3,5 @@
 <h2>Continuous Update working</h2>
 <h2>PoLL SCM is set </h2>
 <h2>Truffle Hog Git Integrated</h2>
+<h2>Personal ubuntu server VM also done</h2>
 
