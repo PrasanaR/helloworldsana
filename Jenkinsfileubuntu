@@ -20,7 +20,7 @@ pipeline {
               rm -r owasp* || true
               wget 'https://raw.githubusercontent.com/PrasanaR/helloworldsana/main/owasp-dependancy-check.sh'
               chmod +x owasp*
-              bash owasp*
+              //bash owasp*
               '''
             }
         }
