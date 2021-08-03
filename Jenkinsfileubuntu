@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    environment {
+        PATH = "/usr/bin:$PATH"
+    }
+    stages {
+        
+        stage("Git Code Check - Truffle"){
+            steps{
+              sh '''
+              rm -r trufflehog || true
+              docker run gesellix/trufflehog --json https://github.com/PrasanaR/helloworldsana.git > trufflehog.json
+              cat trufflehog.json
+              '''
+            }
+        }
+        
+        stage("clone code"){
+            steps{
+              git branch: 'main', url: 'https://github.com/PrasanaR/helloworldsana.git'
+            }
+        }
+        stage("build code"){
+            steps{
+              sh "mvn clean package"
+            }
+        }
+        stage("deploy"){
+            steps{
+              
+                 sh "mv webapp/target/webapp.war /opt/tomcat/latest/webapps/webapp.war"
+                
+            }
+        }
+    }
+}
