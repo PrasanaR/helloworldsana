@@ -21,16 +21,7 @@ pipeline {
                 dependencyCheck additionalArguments: '''-s "./" -f "XML" -o "./report/"''', odcInstallation: 'Dependency-Check'
             }
         }     
-    
-        stage('SONAR SAST SCAN'){
-            steps{
-                withSonarQubeEnv('SonarQube') {
-                sh'mvn sonar:sonar'
-                sh'cat /target/sonar/report-task.txt'
-              }
-            }
-          }
-            
+                
        
         
         stage("build code"){
