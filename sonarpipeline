@@ -3,15 +3,17 @@ pipeline{
     
     stages{
     
-      stage('Git Fetch'){
-          
-            steps{
-            
-            sh' echo "Hello" '
-            
-            }
-      
-        }
+      stage('SonarCloud') {
+  environment {
+    SCANNER_HOME = tool 'SonarQubeScanner'
+    PROJECT_NAME = "igorstojanovski_jenkins-pipeline-as-code"
+  }
+  steps {
+    withSonarQubeEnv('jenkins') {
+        sh '''$SCANNER_HOME/bin/sonar-scanner  
+    }
+  }
+}
       
       }
       
