@@ -5,12 +5,16 @@ pipeline{
     
       stage('SonarCloud') {
   environment {
-    SCANNER_HOME = tool 'SonarQubeScanner'
-    PROJECT_NAME = "igorstojanovski_jenkins-pipeline-as-code"
+ SCANNER_HOME = tool 'SonarQubeScanner'
+    
+    PROJECT_NAME = "jenkins"
   }
   steps {
-    withSonarQubeEnv('SonarQubeScanner') {
-        sh '$SCANNER_HOME/bin/sonar-scanner'
+    withSonarQubeEnv('SonarQubeServer') {
+        sh '''$SCANNER_HOME/bin/sonar-scanner \
+        -Dsonar.java.binaries=build/classes/java/ \
+        -Dsonar.projectKey=$PROJECT_NAME \
+        -Dsonar.sources=.''
     }
   }
 }
