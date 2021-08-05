@@ -47,5 +47,11 @@ pipeline {
                 
             }
         }
+        
+           stage("ZAP Baseline Scan"){
+            steps{
+              sh "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://192.168.0.100:8081/webapp/"
+            }
+        }
     }
 }
