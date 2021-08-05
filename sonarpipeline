@@ -7,7 +7,7 @@ pipeline{
           
             steps{
             
-            sh 'git https://github.com/PrasanaR/helloworldsana.git'
+            sh' echo "Hello" '
             
             }
       
