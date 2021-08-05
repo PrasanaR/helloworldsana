@@ -22,7 +22,18 @@ pipeline {
             }
         }     
                 
-       
+       stage('SonarCloud') {
+  environment {
+ SCANNER_HOME = tool 'SonarQubeScanner'
+    
+    PROJECT_NAME = "jenkins"
+  }
+  steps {
+    withSonarQubeEnv('SonarQubeServer') {
+        sh' mvn sonar:sonar'
+    }
+  }
+}
         
         stage("build code"){
             steps{
