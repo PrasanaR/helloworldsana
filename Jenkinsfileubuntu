@@ -22,14 +22,14 @@ pipeline {
             }
         }     
     
-        stage('SONAR SAST SCAN')
+        stage('SONAR SAST SCAN'){
             steps{
                 withSonarQubeEnv {
                 sh'mvn sonar:sonar'
                 sh'cat /target/sonar/report-task.txt'
               }
-
             }
+          }
             
        
         
